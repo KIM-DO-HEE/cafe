@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="menuDAO">
+
+	 <select id="getMenuDetail" resultType="menuVO">
+		SELECT *
+		FROM menu
+		WHERE menuId = #{menuId}
+	</select> 
+	
+	<select id="getMenuList" resultType="menuVO">
+		SELECT * FROM menu
+	</select>
+
+	<insert id="insertMenu" parameterType="menuVO">
+		INSERT INTO menu(menuName,menuPrice,menuInfo)
+		VALUES(#{menuName},#{menuPrice},#{menuInfo})
+	</insert>
+
+	<update id="updateMenu" parameterType="int">
+		UPDATE menu
+		SET
+		menuId=#{menuId}
+	</update>
+
+	<delete id="deleteMenu"  parameterType="int">
+		DELETE FROM menu
+		WHERE menuId = #{menuId}
+	</delete>
+
+</mapper>
