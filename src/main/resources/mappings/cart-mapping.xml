@@ -9,4 +9,9 @@
 		VALUES(#{user},#{menuId},#{menuName},#{menuPrice})
 	</insert>
 
+	<select id="getCartList" parameterType="hashmap" resultType="cartVO">
+		SELECT *
+		FROM cafe.cartlist as c, cafe.user as u
+		WHERE c.cartNo = u.cartNo  and u.userId = #{userId}
+	</select>
 </mapper>
