@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,21 +13,21 @@
 <body>
 	<table cellpadding="0" cellspacing="0" width="700" class="table table-borderless">
 		<tr>
-			<th bgcolor="gray" width="100">¸Þ´º ÀÌ¹ÌÁö</th>
-			<th bgcolor="gray" width="100">¸Þ´º ÀÌ¸§</th>
-			<th bgcolor="gray" width="200">¸Þ´º °¡°Ý</th>
-			<th bgcolor="gray" width="200">¸Å´º Á¤º¸</th>
+			<th bgcolor="gray" width="100">ë©”ë‰´ ì´ë¯¸ì§€</th>
+			<th bgcolor="gray" width="100">ë©”ë‰´ ì´ë¦„</th>
+			<th bgcolor="gray" width="200">ë©”ë‰´ ê°€ê²©</th>
+			<th bgcolor="gray" width="200">ë§¤ë‰´ ì •ë³´</th>
 		</tr>
 	<tr>
+	<form action="/insertCart">
+		<input type="hidden" name="menuId" value="${menu.menuId}"/>
 		<td><img src="C:\image"+${menu.getImage().getOrginalFileName()}></td>
-		<td>${menu.menuName}</td>
-		<td>${menu.menuPrice}</td>
-		<td>${menu.menuInfo}</td>
+		<td><input type="text" name="menuName" value="${menu.menuName}"/></td>
+		<td><input type="text" name="menuPrice" value="${menu.menuPrice}"/></td>
+		<td><input type="text" name="menuInfo" value="${menu.menuInfo}"/></td>
 	</tr>
 	</table>
-	
-	<form action="/insertCart">
-		<input type="submit" value="Àå¹Ù±¸´Ï ´ã±â">
+		<input type="submit" value="ìž¥ë°”êµ¬ë‹ˆ ë‹´ê¸°">
 	</form> 
 </body>
 </html>

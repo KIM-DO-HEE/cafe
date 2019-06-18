@@ -19,7 +19,7 @@ public class userDAO {
 	}
 	
 	
-	public String login(userVO vo)
+	public userVO login(userVO vo)
 	{
 		return mybatis.selectOne("userDAO.login", vo);
 	}

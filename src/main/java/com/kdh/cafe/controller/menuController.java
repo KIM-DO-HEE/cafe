@@ -47,7 +47,7 @@ public class menuController {
 	
 	//메뉴 상세보기
 	@RequestMapping(value="/getMenuDetail")
-	public String getMenuDetail(@RequestParam("menuId") int menuId,menuVO vo, Model model)
+	public String getMenuDetail(@RequestParam("menuId") int menuId, menuVO vo, Model model)
 	{
 		model.addAttribute("menu",service.getMenuDetail(vo));
 		return "menuDetail";

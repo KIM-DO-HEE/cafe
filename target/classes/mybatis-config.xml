@@ -16,5 +16,6 @@
 	<mappers>
 		<mapper resource="mappings/user-mapping.xml"/>
 		<mapper resource="mappings/menu-mapping.xml"/>
+		<mapper resource="mappings/cart-mapping.xml"/>
 	</mappers>
 </configuration>

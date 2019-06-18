@@ -15,8 +15,8 @@
 		INSERT INTO cafe.cart values ((SELECT count(cartNo) FROM cafe.user))
 	</insert>
 	
-	<select id="login" resultType="String">
-		SELECT userId
+	<select id="login" resultType="userVO">
+		SELECT *
 		FROM user
 		WHERE userId = #{userId} and userPw = #{userPw}
 	</select>

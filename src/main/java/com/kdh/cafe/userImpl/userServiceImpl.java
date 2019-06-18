@@ -19,7 +19,7 @@ public class userServiceImpl implements userService{
 	}
 
 	@Override
-	public String loginUser(userVO vo) {
+	public userVO loginUser(userVO vo) {
 		// TODO Auto-generated method stub
 		return dao.login(vo);
 	}

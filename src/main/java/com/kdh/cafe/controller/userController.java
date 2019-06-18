@@ -1,5 +1,7 @@
 package com.kdh.cafe.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,10 +28,11 @@ public class userController {
 	}
 	
 	@RequestMapping(value="/login", method = RequestMethod.POST)
-	public String login(userVO vo)
+	public String login(userVO vo, HttpSession session)
 	{
 		if(service.loginUser(vo) !=  null)
-		{
+		{ 
+			session.setAttribute("userVO", service.loginUser(vo));
 			return "index";
 		}else {
 			return "login";
