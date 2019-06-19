@@ -14,4 +14,9 @@
 		FROM cafe.cartlist as c, cafe.user as u
 		WHERE c.cartNo = u.cartNo  and u.userId = #{userId}
 	</select>
+	
+	<delete id="deleteCart" parameterType="hashmap">
+		DELETE FROM cafe.cartlist
+		WHERE menuId = #{menuId} and cartNo = #{cartNo}
+	</delete>
 </mapper>

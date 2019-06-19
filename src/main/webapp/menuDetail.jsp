@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.kdh.cafe.user.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +12,12 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
+<%
+	userVO userVO = null;
+	if(session.getAttribute("userVO") != null){
+		userVO = (userVO) session.getAttribute("userVO");
+	}
+%>
 	<table cellpadding="0" cellspacing="0" width="700" class="table table-borderless">
 		<tr>
 			<th bgcolor="gray" width="100">메뉴 이미지</th>
@@ -19,6 +26,7 @@
 			<th bgcolor="gray" width="200">매뉴 정보</th>
 		</tr>
 	<tr>
+	<% if(userVO.getRole() == 0){ %>
 	<form action="/insertCart">
 		<input type="hidden" name="menuId" value="${menu.menuId}"/>
 		<td><img src="C:\image"+${menu.getImage().getOrginalFileName()}></td>
@@ -29,5 +37,19 @@
 	</table>
 		<input type="submit" value="장바구니 담기">
 	</form> 
+	<%}else if(userVO.getRole() == 1){ %>
+	
+	<form action="/updateMenu?menuId=${menu.menuId}">
+		<input type="hidden" name="menuId" value="${menu.menuId}"/>
+		<td><img src="C:\image"+${menu.getImage().getOrginalFileName()}></td>
+		<td><input type="text" name="menuName" value="${menu.menuName}"/></td>
+		<td><input type="text" name="menuPrice" value="${menu.menuPrice}"/></td>
+		<td><input type="text" name="menuInfo" value="${menu.menuInfo}"/></td>
+	</tr>
+	</table>
+		<input type="submit" value="수정하기">
+		<a href="/deleteMenu?menuId=${menu.menuId}">삭제하기</a>
+	</form> 
+	<%} %>
 </body>
 </html>

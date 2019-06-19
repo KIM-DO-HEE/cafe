@@ -23,4 +23,10 @@ public class cartDAO {
 	{
 		return mybatis.selectList("cartDAO.getCartList",map);
 	}
+	
+	public void deleteCart(HashMap<String, Object> map)
+	{
+		System.out.println("mybatis delete");
+		mybatis.delete("cartDAO.deleteCart",map);
+	}
 }

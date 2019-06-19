@@ -3,6 +3,7 @@ package com.kdh.cafe.controller;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +39,7 @@ public class cartController {
 		//System.out.println(user.getCartNo());
 //		System.out.println(map.get("user"));
 //		System.out.println(map.get("menu"));
-		return "getMenuList";
+		return "redirect:/getCartList";
 	}
 	
 	
@@ -50,9 +51,22 @@ public class cartController {
 		map.put("userId", userId);
 		map.put("cart",vo);
 		model.addAttribute("cartList",service.getCartList(map));
-		
+		session.setAttribute("cartList",service.getCartList(map));
 		return "getCartList";
-		
-		
+	}
+	
+	@RequestMapping("/deleteCart")
+	public String deleteCart(cartVO vo,HttpServletRequest request, HttpSession session) {
+		userVO user = (userVO) session.getAttribute("userVO");
+		int cartNo = user.getCartNo();
+		int menuId = Integer.parseInt(request.getParameter("menuId"));
+		System.out.println(menuId);
+		//vo.setMenuId(menuId);
+		HashMap map = new HashMap<String, Object>();
+		map.put("cartNo", cartNo);
+		map.put("menuId",menuId);
+		//System.out.println(menuId);
+		service.deleteCart(map);
+		return "index";
 	}
 }

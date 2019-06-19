@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -14,15 +14,15 @@
 <body>
 	<table cellpadding="0" cellspacing="0" width="700" class="table table-borderless">
 		<tr>
-			<th bgcolor="gray" width="100">�޴� �̹���</th>
-			<th bgcolor="gray" width="100">�޴� �̸�</th>
-			<th bgcolor="gray" width="200">�޴� ����</th>
-			<th bgcolor="gray" width="200">�Ŵ� ����</th>
+			<th bgcolor="gray" width="100">메뉴 이미지</th>
+			<th bgcolor="gray" width="100">메뉴 이름</th>
+			<th bgcolor="gray" width="200">메뉴 가격</th>
+			<th bgcolor="gray" width="200">매뉴 정보</th>
 		</tr>
 		
 	<c:forEach items="${menuList}" var="menu">
 	<tr>
-		<td><img alt=".." src="${menu.image}"> </td>
+		<td><img alt=".." src="${menu.menuUrl}" width="150" height="150"> </td>
 		<td><a href="/getMenuDetail?menuId=${menu.menuId}">${menu.menuName}</a></td>
 		<td>${menu.menuPrice}</td>
 		<td>${menu.menuInfo}</td>

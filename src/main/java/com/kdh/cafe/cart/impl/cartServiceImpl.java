@@ -28,4 +28,10 @@ public class cartServiceImpl implements cartService{
 		return dao.getCartList(map);
 	}
 
+	@Override
+	public void deleteCart(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		 dao.deleteCart(map);
+	}
+
 }

@@ -15,14 +15,14 @@
 	</select>
 
 	<insert id="insertMenu" parameterType="menuVO">
-		INSERT INTO menu(menuName,menuPrice,menuInfo)
-		VALUES(#{menuName},#{menuPrice},#{menuInfo})
+		INSERT INTO menu(menuName,menuPrice,menuInfo,menuUrl)
+		VALUES(#{menuName},#{menuPrice},#{menuInfo},#{menuUrl})
 	</insert>
 
-	<update id="updateMenu" parameterType="int">
+	<update id="updateMenu" parameterType="menuVO">
 		UPDATE menu
-		SET
-		menuId=#{menuId}
+		SET menuName = #{menuName} , menuPrice = #{menuPrice}, menuInfo = #{menuInfo}, menuUrl = #{menuInfo}
+		WHERE menuId=#{menuId}
 	</update>
 
 	<delete id="deleteMenu"  parameterType="int">

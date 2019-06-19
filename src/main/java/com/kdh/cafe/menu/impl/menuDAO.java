@@ -36,6 +36,6 @@ public class menuDAO {
 	
 	public void deleteMenu(menuVO vo)
 	{
-		mybatis.delete("menuDAO.delete",vo);
+		mybatis.delete("menuDAO.deleteMenu",vo);
 	}
 }

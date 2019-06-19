@@ -6,6 +6,7 @@ public class userVO {
 	private String userName;
 	private String userEmail;
 	private int cartNo;
+	private int role;
 	
 	public String getUserId() {
 		return userId;
@@ -36,6 +37,12 @@ public class userVO {
 	}
 	public void setCartNo(int cartNo) {
 		this.cartNo = cartNo;
+	}
+	public int getRole() {
+		return role;
+	}
+	public void setRole(int role) {
+		this.role = role;
 	}
 	
 	

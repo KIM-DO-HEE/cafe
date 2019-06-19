@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -14,20 +14,20 @@
 <body>
 	<table cellpadding="0" cellspacing="0" width="700" class="table table-borderless">
 		<tr>
-			<th bgcolor="gray" width="100">∏ﬁ¥∫ ¿Ã∏ß</th>
-			<th bgcolor="gray" width="200">∏ﬁ¥∫ ∞°∞›</th>
+			<th bgcolor="gray" width="100">Î©îÎâ¥ Ïù¥Î¶Ñ</th>
+			<th bgcolor="gray" width="200">Î©îÎâ¥ Í∞ÄÍ≤©</th>
 		</tr>
-		
-	<c:forEach items="${cartList}" var="cart">
-	<tr>
-		<td>${cart.menuName}</td>
-		<td>${cart.menuPrice}</td>
-		<td><a href="#">ªË¡¶</a></td>
-	</tr>
-	</c:forEach>
+		<form action="/insertOrder">
+			<c:forEach items="${cartList}" var="cart">
+			<tr>
+				<input type="hidden" name="menuId" value="${cart.menuId}"/>
+				<td><input type="text" name="menuName" value="${cart.menuName}"/></td>
+				<td><input type="text" name="menuPrice" value="${cart.menuPrice}"/></td>
+				<td><a href="/deleteCart?menuId=${cart.menuId}">ÏÇ≠Ï†úÌïòÍ∏∞</a></td>
+			</tr>
+		</c:forEach>
 	</table>
-	<form>
-		<input type="submit" value="¡÷πÆ«œ±‚"> 
-	</form>
+		<input type="submit" value="Ï£ºÎ¨∏ÌïòÍ∏∞"> 
+		</form>
 </body>
 </html>

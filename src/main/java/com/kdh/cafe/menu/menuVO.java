@@ -7,6 +7,7 @@ public class menuVO {
 	private String menuName;
 	private int menuPrice;
 	private String menuInfo;
+	private String menuUrl;
 	private MultipartFile image;
 	
 	public int getMenuId() {
@@ -32,6 +33,13 @@ public class menuVO {
 	}
 	public void setMenuInfo(String menuInfo) {
 		this.menuInfo = menuInfo;
+	}
+	
+	public String getMenuUrl() {
+		return menuUrl;
+	}
+	public void setMenuUrl(String menuUrl) {
+		this.menuUrl = menuUrl;
 	}
 	public MultipartFile getImage() {
 		return image;

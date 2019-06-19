@@ -2,6 +2,9 @@ package com.kdh.cafe.controller;
 
 import java.io.File;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,10 +25,12 @@ public class menuController {
 	@RequestMapping(value="/insertMenu")
 	public String insertMenu(menuVO vo) throws Exception
 	{
+		String fileName = null;
 		MultipartFile uploadFile = vo.getImage();
 		if(!uploadFile.isEmpty()) {
-			String fileName = uploadFile.getOriginalFilename();
+			 fileName = uploadFile.getOriginalFilename();
 			uploadFile.transferTo(new File("C:/image/"+fileName));
+			vo.setMenuUrl("C:/image/"+ fileName);
 		}
 		service.insertMenu(vo);
 		return "index";
@@ -33,8 +38,10 @@ public class menuController {
 	
 	//메뉴 수정
 	@RequestMapping(value="/updateMenu")
-	public String updateMenu(@RequestParam("menuId") int menuId, menuVO vo)
+	public String updateMenu(HttpServletRequest request, menuVO vo)
 	{
+		int menuId = Integer.parseInt(request.getParameter("menuId"));
+		vo.setMenuId(menuId);
 		service.updateMenu(vo);
 		return "index";
 	}

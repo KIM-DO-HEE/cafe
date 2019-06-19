@@ -10,6 +10,8 @@
 		<typeAlias type="com.kdh.cafe.user.userVO" alias="userVO"></typeAlias>
 		<typeAlias type="com.kdh.cafe.menu.menuVO" alias="menuVO"></typeAlias>
 		<typeAlias type="com.kdh.cafe.cart.cartVO" alias="cartVO"></typeAlias>
+		<typeAlias type="com.kdh.cafe.order.orderVO" alias="orderVO"></typeAlias>
+		<typeAlias type="com.kdh.cafe.order.orderListVO" alias="orderListVO"></typeAlias>
 	</typeAliases>
 
 	
@@ -18,5 +20,6 @@
 		<mapper resource="mappings/user-mapping.xml"/>
 		<mapper resource="mappings/menu-mapping.xml"/>
 		<mapper resource="mappings/cart-mapping.xml"/>
+		<mapper resource="mappings/order-mapping.xml"/>
 	</mappers>
 </configuration>
